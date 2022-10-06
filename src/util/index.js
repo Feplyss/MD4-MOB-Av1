@@ -1,5 +1,6 @@
 import fatorial from './fatorial'
+import fibonacci from './fibonacci'
 
 export {
-    fatorial
+    fatorial, fibonacci
 }

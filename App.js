@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { fatorial } from './src/util'
 
 export default function App() {
-  const [numero, setNumero] = useState();
+  const [numero, setNumero] = useState(0);
 
   return (
     <View style={styles.container}>
@@ -23,5 +23,4 @@ const styles = StyleSheet.create({
   valor: {
     paddingTop: 16
   }
-
 });
