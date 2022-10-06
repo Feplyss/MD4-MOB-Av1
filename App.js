@@ -1,24 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Input, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { fatorial } from './src/util'
 
 export default function App() {
-
-  const [number, setNumber] = useState('');
-
-  function fatorial(num){
-    var res = 1;
-    for(var i = num; i > 0; i--){
-      res = res * i
-    }
-    return (<Text>{res}</Text>);
-  }
+  const [numero, setNumero] = useState();
 
   return (
     <View style={styles.container}>
-      <TextInput placeholder="numero" onChange={setNumber} value={number}/>
-      <Button title="Calcular" onPress={() => fatorial({number})}></Button>
-      <Text>{number}</Text>
+      <TextInput keyboardType='numeric' placeholder="Informe um número" onChangeText={(e) => setNumero(e)} />
+      <Text style={styles.valor}>{fatorial(numero)}</Text>
     </View>
   );
 }
@@ -30,4 +20,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  valor: {
+    paddingTop: 16
+  }
+
 });
