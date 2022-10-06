@@ -20,6 +20,7 @@ const anagrama = (palabra1, palabra2) => {
                 palabra2 = removeItemOnce(palabra2, palabra2[j]);
 
                 exist = true;
+                break;
             }
         }
 
