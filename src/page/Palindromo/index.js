@@ -8,7 +8,7 @@ export default function Palindromo() {
     return (
         <View style={styles.container}>
             <Text style={styles.titulo}>Palindromo</Text>
-            <TextInput keyboardType='numeric' placeholder="Digite uma frase" onChangeText={(e) => setPalavra(e)} />
+            <TextInput placeholder="Digite uma frase" onChangeText={(e) => setPalavra(e)} />
             <Text style={styles.valor}>{palindromo(palavra)}</Text>
         </View>
     );
