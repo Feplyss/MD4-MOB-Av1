@@ -1,4 +1,4 @@
-import { removerAcentos } from './util'
+import { removerAcentos } from './util';
 
 const palindromo = (palindromo) => {
     if (palindromo == null || palindromo.length < 2) {

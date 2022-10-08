@@ -1,33 +1,27 @@
-import { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
-import { anagrama, fatorial, fibonacci, palindromo } from './src/util'
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import Home from './src/page/Home';
+import Anagrama from './src/page/Anagrama';
+import Fibonacci from './src/page/Fibonacci';
+import Fatorial from './src/page/Fatorial';
+import Palindromo from './src/page/Palindromo';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [n1, setN1] = useState(0);
-  const [n2, setN2] = useState(0);
-  const [n3, setN3] = useState(0);
-  const [n4, setN4] = useState(0);
-  const [n5, setN5] = useState(0);
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.titulo}>Anagrama</Text>
-      <TextInput keyboardType='numeric' placeholder="Digite uma frase" onChangeText={(e) => setN1(e)} />
-      <TextInput keyboardType='numeric' placeholder="Digite uma frase" onChangeText={(e) => setN2(e)} />
-      <Text style={styles.valor}>{anagrama(n1, n2)}</Text>
-
-      <Text style={styles.titulo}>Fatorial</Text>
-      <TextInput keyboardType='numeric' placeholder="Digite um número" onChangeText={(e) => setN3(e)}/>
-      <Text style={styles.valor}>{fatorial(n3)}</Text>
-
-      <Text style={styles.titulo}>Fibonacci</Text>
-      <TextInput keyboardType='numeric' placeholder="Digite um número" onChangeText={(e) => setN4(e)} />
-      <Text style={styles.valor}>{fibonacci(n4)}</Text>
-
-      <Text style={styles.titulo}>Palindromo</Text>
-      <TextInput keyboardType='numeric' placeholder="Digite uma frase" onChangeText={(e) => setN5(e)} />
-      <Text style={styles.valor}>{palindromo(n5)}</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Home">
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Anagrama" component={Anagrama} options={{ headerShown: true, animation: 'slide_from_right' }} />
+        <Stack.Screen name="Fibonacci" component={Fibonacci} options={{ headerShown: true, animation: 'slide_from_right' }} />
+        <Stack.Screen name="Fatorial" component={Fatorial} options={{ headerShown: true, animation: 'slide_from_right' }} />
+        <Stack.Screen name="Palindromo" component={Palindromo} options={{ headerShown: true, animation: 'slide_from_right' }} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

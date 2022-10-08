@@ -1,4 +1,4 @@
-import { removerAcentos, removeItemOnce } from './util'
+import { removerAcentos, removeItemOnce } from './util';
 
 const anagrama = (palabra1, palabra2) => {
     if (palabra1 == null || palabra1.length < 2 || palabra2 == null || palabra2.length < 2) {
